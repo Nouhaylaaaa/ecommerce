@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+  <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ produit.image }}" class="img-fluid" alt="{{ produit.designation }}">
+            </div>
+            <div class="col-md-6">
+                <h1>{{ produit.designation }}</h1>
+                <p class="lead">{{ produit.description }}</p>
+                <h3>Prix : {{ produit.prix }} €</h3>
+                <h3>{{ produit.quantite }} en stock</h3>
+
+                <hr>
+                <a href="#" class="btn btn-primary">Ajouter au panier</a>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
