@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
 # Create your models here.
 class Categorie(models.Model):
@@ -65,3 +66,10 @@ class Panier(models.Model):
         return self.user.username
 
 
+class Contact(models.Model):
+    username = models.CharField(max_length=255)
+    email = models.EmailField()
+    feedback = models.TextField()
+
+    def __str__(self):
+        return self.username

@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="container" style="margin-bottom: 80px;">
+
+  <div class="row">
+    <div class="col-12">
+
+    </div>
+  </div>
+
+<div class="p-4 p-md-5 mb-4 rounded" style="background-color: black; color: white;">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mt-5 mb-5">
+        <h1 class="display-4 fst-italic-bold" style="text-shadow: 2px 2px purple;">About Us</h1></div>
+        <div>
+        <p class="lead mb-5">Welcome to our online store! We are passionate about providing you with the best shopping experience. Our mission is to offer a wide selection of high-quality products that cater to your needs and preferences. With a focus on customer satisfaction, we strive to make your online shopping journey seamless and enjoyable.</p>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end align-items-center">
+      <img src="{% static 'pics/state-of-ecommerce.svg' %}" class="img-fluid" style="width: 100%;" alt="Your Image">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <div class="container"> <!-- Enclose the row within a container -->
+
+<style>
+  body {
+    background: linear-gradient(90deg, #145889 0%, #AB47BC 100%);
+  }
+
+  .container {
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    margin-bottom: 50px;
+  }
+
+  .title {
+    font-size: 25px;
+    font-weight: 100;
+  }
+
+  .icon {
+    position: relative;
+    bottom: 11px;
+  }
+
+  .mt-100 {
+    margin-top: 100px;
+  }
+
+  .profile img {
+    width: 150px; /* Increase the width of the profile image */
+    height: 150px; /* Increase the height of the profile image */
+    border-radius: 50%;
+  }
+
+  .card {
+    border-radius: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    margin-bottom: 30px; /* Add margin bottom to create space between cards */
+  }
+
+  .card-body {
+    position: relative;
+    bottom: 35px;
+  }
+
+  .btn {
+    margin-top: 36px;
+    margin-bottom: 45px;
+    background-color: #AB47BC;
+    border: none;
+    color: #fff;
+  }
+
+  .btn:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    color: #fff;
+  }
+
+  .header {
+    padding-top: 40px;
+  }
+</style>
+
+
+
+  <div class="container mx-auto mt-5 mt-md-100">
+  <div class="header">
+    <div class="title "> <h1 class="fst-italic-bold" style="text-shadow: 2px 2px purple;">Our Expert Team</h1></div>
+
+  </div>
+  <div class="row justify-content-center pb-5">
+    <div class="card col-md-3 mt-100">
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="profile"><img src="{% static 'pics/nouha.jpeg' %}"></div>
+          <div class="card-title mt-4">HNIZIL NOUHAYLA<br /><small>CO-FOUNDER</small></div>
+          <div class="card-subtitle">
+            <p><small class="text-muted">I expected anything less than perfect for the team of experts. They are the best team ever!</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-3 mt-100">
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="profile"><img src="{% static 'pics/nabil.jpeg' %}"></div>
+          <div class="card-title mt-4">LAHLALIA NABIL<br /><small>CO-FOUNDER</small></div>
+          <div class="card-subtitle">
+            <p><small class="text-muted">
+The team of experts exceeded my expectations in every way. They are truly the best team I have ever worked with!.</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-md-3 mt-100">
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="profile"><img src="{% static 'pics/anass.jpeg' %}"></div>
+          <div class="card-title mt-4">MOAYA ANASS<br /><small>CO-FOUNDER</small></div>
+          <div class="card-subtitle">
+            <p><small class="text-muted">I really enjoyed working with them. They are a group of professionals, and they know what they're doing.!</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</main>
+{% endblock %}

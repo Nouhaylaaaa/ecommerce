@@ -41,10 +41,10 @@
         <a class="nav-link" href="{% url 'connexion'%}">Connexion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contactez-Nous</a>
+        <a class="nav-link" href="{% url 'ContactPage'%}">Contactez-Nous</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">A propos de nous </a>
+        <a class="nav-link" href="{% url 'AboutUs'%}">A propos de nous </a>
       </li>
       <li class="nav-item ml-auto" id="but">
         <span>{{request.user}}</span>

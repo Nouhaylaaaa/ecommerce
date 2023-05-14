@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from .models import Produit,Panier,Commandee
+from .models import Contact as ContactModel
+from django.contrib import messages
 from .forms import ReglementForm
 from datetime import date
 # Create your views here.
@@ -70,5 +72,21 @@ def paiement(request):
 
     return render(request, 'paiement.html', {'reglement_form': reglement_form, 'panier': panier})
 
+def AboutUs(request):
+    return render(request, 'aboutUs.html')
+
+
+
+def Contact(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        feedback = request.POST.get('feedback')
+        contact = ContactModel(username=username, email=email, feedback=feedback)
+        contact.save()
+        messages.success(request, 'You have succeeded!')
+        return redirect('ContactPage')
+
+    return render(request, 'ContatPage.html')
 
 

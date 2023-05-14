@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .btn-purple {
+    color: purple;
+    border-color: purple;
+  }
+  .container {
+    background-color: white;
+
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    margin-bottom: 75px;
+    margin-top: 20px;
+
+
+  }
+  body {
+    background: linear-gradient(90deg, #145889 0%, #AB47BC 100%);
+  }
+    .custom-container {
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    margin-bottom: 50px;
+  }
+  .custom-container h1 {
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px purple;
+    margin-top: 20px;
+  }
+ .card {
+    border: none;
+  }
+  .form-control-lg {
+    height: 60px;
+    font-size: 18px;
+  }
+  }
+</style>
+
+<div class="container mt-5">
+
+
+
+
+<div class="container custom-container bg-black text-white" >
+  <div class="row justify-content-center align-items-center vh-100 custom-row">
+    <div class="col-md-6">
+
+      <div class="card h-100">
+        <div class="card-body">
+          <h1 class="text-center mb-4">Contact Us</h1>
+      <form class="my-form text-center" method="POST" action="{% url 'ContactPage' %}">
+  {% csrf_token %}
+ <form class="my-form text-center" method="POST" action="{% url 'ContactPage' %}">
+  {% csrf_token %}
+  <div class="form-group mb-4">
+  <label for="name">Username</label>
+  <input type="text" name="username" class="form-control form-control-lg" id="name" placeholder="Enter your username">
+</div>
+
+  <div class="form-group mb-4">
+    <label for="email">Email</label>
+    <input type="email" name="email" class="form-control form-control-lg" id="email" placeholder="Enter your email">
+  </div>
+  <div class="form-group mb-4">
+    <label for="message">Feedback</label>
+    <textarea name="feedback" class="form-control form-control-lg" id="message" rows="4" placeholder="Enter your feedback"></textarea>
+  </div>
+  <button type="submit" class="btn btn-outline-primary btn-purple" onclick="showSuccessMessage()">Send Feedback</button>
+</form>
+
+{% if messages %}
+  <div class="alert alert-success" id="successMessage">
+    <strong>{{ messages.first }}</strong>
+  </div>
+{% endif %}
+
+
+<script>
+function showSuccessMessage() {
+  document.getElementById("successMessage").style.display = "block";
+}
+</script>
+      </form></div>
+      </div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="">
+  <div class="card h-100 bg-black text-white align-items-center">
+    <div class="card-body">
+     <h1 class="display-4 fst-italic-bold" style="text-shadow: 2px 2px purple;">Contact INFOS</h1>
+
+    </div>
+    <div class="d-flex align-items-start mb-3">
+      <div class="icon me-3 align-self-start">
+        <i class="fas fa-phone fa-fw"></i>
+      </div>
+      <div class="text">
+        <p class="mb-0"><strong>Phone:</strong></p>
+        <p class="ms-4"><a href="tel:+099999">+212677777777</a></p>
+      </div>
+    </div>
+    <div class="d-flex align-items-start mb-3">
+      <div class="icon me-3 align-self-start">
+        <i class="fas fa-envelope fa-fw"></i>
+      </div>
+      <div class="text">
+        <p class="mb-0"><strong>Email:</strong></p>
+        <p class="ms-4"><a href="#">Ecom@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="d-flex align-items-start">
+      <div class="icon me-3 align-self-start">
+        <i class="fas fa-globe fa-fw"></i>
+      </div>
+      <div class="text">
+        <p class="mb-0"><strong>Website:</strong></p>
+        <p class="ms-4"><a href="#">Ecom.com</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+
+{% endblock %}
