@@ -2,6 +2,12 @@
 
 {% block content %}
     <div class="container">
+        <form class="form-inline mb-4" method="GET" action="{% url 'home1' %}">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="Rechercher un produit">
+            </div>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
         <div class="row">
             {% for produit in produits %}
                 <div class="col-md-4">
@@ -10,6 +16,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ produit.designation }}</h5>
                             <p class="card-text">{{ produit.description }}</p>
+                            <p class="card-text">{{ produit.prix }} €</p>
                             <a href="#" class="btn btn-primary">Acheter</a>
                             <a href="{% url 'produit_detail' produit.id %}" class="btn btn-primary">Voir les détails</a>
                         </div>

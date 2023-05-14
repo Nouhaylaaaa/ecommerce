@@ -35,6 +35,10 @@ class Commandee(models.Model):
     produitP = models.ForeignKey(Produit,on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
+
+    def get_total(self):
+        return self.quantity * self.produitP.prix
+
     def __str__(self):
         return self.etat_cmd
 
@@ -50,7 +54,14 @@ class Panier(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     commande = models.ManyToManyField(Commandee)
 
+    def get_total(self):
+        total = 0.0
+        for commande in self.commande.all():
+            total += commande.get_total()
+        return total
+
+
     def __str__(self):
-        return self.user
+        return self.user.username
 
 

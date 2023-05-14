@@ -14,7 +14,14 @@
                 <h3>{{ produit.quantite }} en stock</h3>
 
                 <hr>
-                <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'ajouter_panier' produit.id %}">
+                    {% csrf_token %}
+                    <label for="quantity">Quantité :</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="{{ produit.quantite }}" required>
+                    <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>

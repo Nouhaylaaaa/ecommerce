@@ -1,7 +1,50 @@
 {% extends 'base.html' %}
+
 {% block content %}
+<div class="container">
+    <h1>Panier</h1>
+    <div class="row">
+        <div class="col-md-12">
+            {% if panier.commande.all %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Description</th>
+                            <th>Quantité</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for commande in panier.commande.all %}
+                            <tr>
+                                <td>{{ commande.produitP.designation }}</td>
+                                <td>{{ commande.produitP.description }}</td>
+                                <td>{{ commande.quantity }}</td>
+                                <td>{{ commande.produitP.prix }} €</td>
+                                <td>{{ commande.get_total }} €</td>
+                                <td><a href="{% url 'supprimer_panier' commande.id %}" class="btn btn-danger">Supprimer</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Votre panier est vide.</p>
+            {% endif %}
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Total : {{ panier.get_total }} €</h4>
+        </div>
+    </div>
 
-  <h1>Panier</h1>
-
+    <form method="post" action="{% url 'paiement' %}">
+        {% csrf_token %}
+        <button type="submit" name="commander" class="btn btn-primary">Commander</button>
+    </form>
+</div>
 {% endblock %}
